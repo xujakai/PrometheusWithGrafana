@@ -15,6 +15,29 @@ scrape_configs:
         - '{{ host }}:9100'
       {% endif %}
       {% endfor %}
+  - job_name: "broker"
+    honor_labels: true # don't overwrite job & instance labels
+    static_configs:
+    - targets: 
+      {% for host in groups['bookkeeperNodes'] %}
+        - '{{ host }}:8081'
+      {% endfor %}      
+
+  - job_name: "bookie"
+    honor_labels: true # don't overwrite job & instance labels
+    static_configs:
+    - targets: 
+      {% for host in groups['bookkeeperNodes'] %}
+        - '{{ host }}:4182'
+      {% endfor %} 
+      
+  - job_name: "zookeeper"
+    honor_labels: true
+    static_configs:
+    - targets: 
+      {% for host in groups['zkNodes'] %}
+        - '{{ host }}:9194'
+      {% endfor %} 
 
 rule_files:
   - alert.rules.yml

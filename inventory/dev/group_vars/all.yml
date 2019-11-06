@@ -1,0 +1,14 @@
+---
+alertmanagerPackagePath: /home/export/package
+alertmanagerVersion: 0.19.0
+
+
+grafanaPackagePath: /home/export/package
+grafanaVersion: 6.4.3
+
+
+prometheusPackagePath: /home/export/package
+prometheusVersion: 2.13.1
+
+prometheus_node_exporterPackagePath: /home/export/package
+prometheus_node_exporterVersion: 0.18.1
